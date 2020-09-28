@@ -46,8 +46,8 @@ npm start --prefix mobile
 
 * **Lucas Dib** - [Lucas Dibz](https://github.com/LucasDibz)
 * **Leonardo Santos** - [Leonardo Santos](https://github.com/Leonnard19)
-* **Luiz Barone** - [Leonardo Santos](https://github.com/BaroneLuiz)
-* **Fabio Monteiro** - [Leonardo Santos](https://github.com/Monteifa)
+* **Luiz Barone** - [Luiz Barone](https://github.com/BaroneLuiz)
+* **Fabio Monteiro** - [Fabio Monteiro](https://github.com/Monteifa)
 
 
 ## License
