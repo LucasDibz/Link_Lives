@@ -1,26 +1,38 @@
 import React from 'react';
 
-import { useNavigation } from '@react-navigation/native';
-import { RectButton, TextInput } from 'react-native-gesture-handler';
-import { View, Image, Text } from 'react-native';
+import { useNavigation, Link } from '@react-navigation/native';
+import { RectButton } from 'react-native-gesture-handler';
+import { View, Image, Text, TextInput } from 'react-native';
 
-import logo from '../../../assets/logo.png';
+import logo from '../../assets/logo.png';
 
 import styles from './styles';
-import { Input } from 'react-native-elements';
 
 const Login = () => {
+  const { navigate } = useNavigation();
+
+  function login() {}
+
   return (
     <View style={styles.container}>
-      <Image source={logo} />
+      <Image source={logo} style={styles.logo} />
       <Text style={styles.title}>Faça seu Login</Text>
 
       <View style={styles.inputContainer}>
-        <Text style={styles.placeholder}>Sua ID</Text>
-        <TextInput style={styles.input} />
+        <TextInput placeholder={'Sua ID'} style={styles.input} />
 
-        <Text style={styles.placeholder}>Senha</Text>
-        <TextInput style={styles.input} />
+        <TextInput
+          placeholder={'Senha'}
+          style={[styles.input, { marginTop: 16 }]}
+        />
+
+        <RectButton style={styles.button} onPress={login}>
+          <Text style={styles.buttonText}>Entrar</Text>
+        </RectButton>
+
+        <Link to={'#'} style={styles.link}>
+          Não tenho cadastro
+        </Link>
       </View>
     </View>
   );
