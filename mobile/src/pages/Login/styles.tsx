@@ -51,6 +51,8 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: '300',
   },
+
+  texto: {},
 });
 
 export default styles;
