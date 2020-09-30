@@ -10,10 +10,13 @@ const styles = StyleSheet.create({
     height: 176,
     borderBottomLeftRadius: 169,
   },
-  body: {},
+  body: {
+    marginLeft: 16,
+  },
   info: {
     flexDirection: 'row',
     alignItems: 'center',
+    marginTop: 16,
   },
   foto: {
     width: 64,
@@ -21,11 +24,25 @@ const styles = StyleSheet.create({
     borderRadius: 32,
     backgroundColor: '#eee',
   },
-  name: {},
+  name: {
+    marginLeft: 16,
+    fontSize: 20,
+  },
   inputContainer: {},
-  texto: {},
+  texto: {
+    fontSize: 18,
+    marginTop: 56,
+    zIndex: 1,
+  },
 
-  input: {},
+  input: {
+    fontSize: 18,
+    marginTop: 8,
+    borderBottomWidth: 1,
+    borderBottomColor: '#EB3C3C',
+
+    width: 328,
+  },
 });
 
 export default styles;

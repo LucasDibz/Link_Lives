@@ -6,8 +6,10 @@ import styles from './styles';
 
 const Home = () => {
   return (
-    <View>
-      <Text>Home</Text>
+    <View style={styles.container}>
+      <View style={styles.box}></View>
+      <View style={styles.box}></View>
+      <View style={styles.box}></View>
     </View>
   );
 };
