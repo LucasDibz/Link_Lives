@@ -11,7 +11,13 @@ import styles from './styles';
 const Login = () => {
   const { navigate } = useNavigation();
 
-  function login() {}
+  function login() {
+    navigate('Main');
+  }
+
+  function cadastro() {
+    navigate('Cadastro');
+  }
 
   return (
     <View style={styles.container}>
@@ -30,7 +36,7 @@ const Login = () => {
           <Text style={styles.buttonText}>Entrar</Text>
         </RectButton>
 
-        <Link to={'#'} style={styles.link}>
+        <Link to={'#'} style={styles.link} onPress={cadastro}>
           Não tenho cadastro
         </Link>
       </View>
