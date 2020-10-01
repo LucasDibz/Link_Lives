@@ -10,6 +10,10 @@ const styles = StyleSheet.create({
     height: 176,
     borderBottomLeftRadius: 169,
   },
+  icon: {
+    marginTop: 32,
+    marginLeft: 16,
+  },
   body: {
     marginLeft: 16,
   },

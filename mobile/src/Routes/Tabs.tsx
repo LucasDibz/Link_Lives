@@ -1,6 +1,6 @@
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { MaterialIcons } from '@expo/vector-icons';
+import { FontAwesome } from '@expo/vector-icons';
 
 import Profile from '../pages/Profile';
 import Home from '../pages/Home';
@@ -32,12 +32,25 @@ function Tabs() {
         },
       }}
     >
-      <Screen name='Home' component={Home}
-      
+      <Screen
+        name='Home'
+        component={Home}
+        options={{
+          tabBarIcon: ({ color, size }) => {
+            return <FontAwesome name='home' size={size} color={color} />;
+          },
+        }}
       />
 
-
-      <Screen name='Profile' component={Profile} />
+      <Screen
+        name='Profile'
+        component={Profile}
+        options={{
+          tabBarIcon: ({ color, size }) => {
+            return <FontAwesome name='user' size={size} color={color} />;
+          },
+        }}
+      />
     </Navigator>
   );
 }

@@ -3,7 +3,7 @@ import React from 'react';
 import { useNavigation, Link } from '@react-navigation/native';
 import { RectButton } from 'react-native-gesture-handler';
 import { View, Image, Text, TextInput } from 'react-native';
-
+import { FontAwesome } from '@expo/vector-icons';
 
 import logo from '../../assets/logo.png';
 
@@ -24,6 +24,7 @@ const Login = () => {
 
   return (
     <View style={styles.container}>
+      {/* <FontAwesome name='arrow-left' size={28} /> */}
       <Image source={logo} style={styles.logo} />
       <Text style={styles.title}>Faça seu Login</Text>
 
@@ -39,10 +40,7 @@ const Login = () => {
           <Text style={styles.buttonText}>Entrar</Text>
         </RectButton>
 
-        <Text
-          style={styles.link}
-          onPress={cadastro}
-        >
+        <Text style={styles.link} onPress={cadastro}>
           Não tenho cadastro
         </Text>
       </View>

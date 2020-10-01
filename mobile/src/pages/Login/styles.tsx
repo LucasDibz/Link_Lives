@@ -18,7 +18,6 @@ const styles = StyleSheet.create({
 
   inputContainer: {
     marginTop: 30,
-
     alignItems: 'center',
     width: '100%',
   },

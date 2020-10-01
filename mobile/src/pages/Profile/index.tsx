@@ -3,7 +3,7 @@ import React from 'react';
 import { useNavigation, Link } from '@react-navigation/native';
 import { RectButton } from 'react-native-gesture-handler';
 import { ScrollView, Image, Text, TextInput, View } from 'react-native';
-import { MaterialIcons } from '@expo/vector-icons';
+import { FontAwesome } from '@expo/vector-icons';
 
 import styles from './styles';
 
@@ -23,7 +23,12 @@ const Profile = () => {
         }}
       >
         <View style={styles.header}>
-          <MaterialIcons name='home' />
+          <FontAwesome
+            name='arrow-left'
+            size={28}
+            style={styles.icon}
+            onPress={NavigateBack}
+          />
         </View>
         <View style={styles.body}>
           <View style={styles.info}>
