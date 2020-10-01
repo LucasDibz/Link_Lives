@@ -32,7 +32,11 @@ function Tabs() {
         activeTintColor: '#32264D',
       }}
     >
-      <Screen name='Home' component={Home} />
+      <Screen name='Home' component={Home}
+      
+      />
+
+
       <Screen name='Profile' component={Profile} />
     </Navigator>
   );
