@@ -5,8 +5,6 @@ import { RectButton } from 'react-native-gesture-handler';
 import { ScrollView, Image, Text, TextInput, View } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
 
-import logo from '../../assets/logo.png';
-
 import styles from './styles';
 
 const Profile = () => {
@@ -24,7 +22,9 @@ const Profile = () => {
           paddingBottom: 16,
         }}
       >
-        <View style={styles.header}></View>
+        <View style={styles.header}>
+          <MaterialIcons name='home' />
+        </View>
         <View style={styles.body}>
           <View style={styles.info}>
             <Image

@@ -21,15 +21,15 @@ function Tabs() {
           alignItems: 'center',
           justifyContent: 'center',
         },
-
+        iconStyle: {
+          flex: 0,
+          width: 20,
+          height: 20,
+        },
         labelStyle: {
           fontSize: 13,
           marginLeft: 16,
         },
-        activeBackgroundColor: '#ebebf5',
-        inactiveBackgroundColor: '#FAFAFC',
-        inactiveTintColor: '#C1BCCC',
-        activeTintColor: '#32264D',
       }}
     >
       <Screen name='Home' component={Home} />
