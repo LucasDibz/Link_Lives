@@ -18,9 +18,13 @@ const Profile = () => {
 
   return (
     <View style={styles.container}>
-      <View style={styles.header}></View>
-
-      <ScrollView showsVerticalScrollIndicator={false}>
+      <ScrollView
+        showsVerticalScrollIndicator={false}
+        contentContainerStyle={{
+          paddingBottom: 16,
+        }}
+      >
+        <View style={styles.header}></View>
         <View style={styles.body}>
           <View style={styles.info}>
             <Image
@@ -34,7 +38,22 @@ const Profile = () => {
           </View>
           <View style={styles.inputContainer}>
             <Text style={styles.texto}>Nome</Text>
-            <TextInput placeholder={'Sua ID'} style={styles.input} />
+            <TextInput editable={false} style={styles.input} />
+
+            <Text style={styles.texto}>Nome</Text>
+            <TextInput editable={false} style={styles.input} />
+
+            <Text style={styles.texto}>Nome</Text>
+            <TextInput editable={false} style={styles.input} />
+
+            <Text style={styles.texto}>Nome</Text>
+            <TextInput editable={false} style={styles.input} />
+
+            <Text style={styles.texto}>Nome</Text>
+            <TextInput editable={false} style={styles.input} />
+
+            <Text style={styles.texto}>Nome</Text>
+            <TextInput editable={false} style={styles.input} />
           </View>
         </View>
       </ScrollView>
