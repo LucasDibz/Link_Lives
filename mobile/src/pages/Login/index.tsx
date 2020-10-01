@@ -4,6 +4,7 @@ import { useNavigation, Link } from '@react-navigation/native';
 import { RectButton } from 'react-native-gesture-handler';
 import { View, Image, Text, TextInput } from 'react-native';
 
+
 import logo from '../../assets/logo.png';
 
 import styles from './styles';
@@ -12,6 +13,8 @@ const Login = () => {
   const { navigate } = useNavigation();
 
   function login() {
+    //Fazer validações para o login
+    //Se passar => navigate('Main')
     navigate('Main');
   }
 
@@ -36,9 +39,12 @@ const Login = () => {
           <Text style={styles.buttonText}>Entrar</Text>
         </RectButton>
 
-        <Link to={'#'} style={styles.link} onPress={cadastro}>
+        <Text
+          style={styles.link}
+          onPress={cadastro}
+        >
           Não tenho cadastro
-        </Link>
+        </Text>
       </View>
     </View>
   );

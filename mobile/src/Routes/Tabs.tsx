@@ -32,7 +32,11 @@ function Tabs() {
         },
       }}
     >
-      <Screen name='Home' component={Home} />
+      <Screen name='Home' component={Home}
+      
+      />
+
+
       <Screen name='Profile' component={Profile} />
     </Navigator>
   );
