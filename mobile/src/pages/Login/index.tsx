@@ -3,13 +3,17 @@ import React from 'react';
 import { useNavigation, Link } from '@react-navigation/native';
 import { RectButton } from 'react-native-gesture-handler';
 import { View, Image, Text, TextInput } from 'react-native';
+import { Picker } from '@react-native-community/picker';
 import { FontAwesome } from '@expo/vector-icons';
 
 import logo from '../../assets/logo.png';
 
 import styles from './styles';
+import { useState } from 'react';
 
 const Login = () => {
+  const [selectedValue, setSelectedValue] = useState();
+  const [] = useState();
   const { navigate } = useNavigation();
 
   function login() {
@@ -24,7 +28,6 @@ const Login = () => {
 
   return (
     <View style={styles.container}>
-      {/* <FontAwesome name='arrow-left' size={28} /> */}
       <Image source={logo} style={styles.logo} />
       <Text style={styles.title}>Faça seu Login</Text>
 

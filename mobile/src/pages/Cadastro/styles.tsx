@@ -62,6 +62,16 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: '#FFF',
   },
+  switch: {
+    width: 288,
+  },
+  pickerItem: {
+    height: 48,
+    width: 288,
+    backgroundColor: '#FFF',
+    borderRadius: 40,
+    fontSize: 24,
+  },
 });
 
 export default styles;

@@ -1,6 +1,6 @@
 import React from 'react';
-import { View, Text, TextInput, Image, Picker } from 'react-native';
-
+import SwitchSelector from 'react-native-switch-selector';
+import { View, Text, TextInput, Image } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { RectButton, ScrollView } from 'react-native-gesture-handler';
 import { FontAwesome } from '@expo/vector-icons';
@@ -11,7 +11,7 @@ import styles from './styles';
 import { useState } from 'react';
 
 const Register = () => {
-  const [selectedValue, setSelectedValue] = useState();
+  const [selectedValue, setSelectedValue] = useState('');
 
   const { goBack } = useNavigation();
 
@@ -55,51 +55,28 @@ const Register = () => {
             />
           </View>
         </View>
-        <View style={styles.pickerBody}>
-          {/* Picker Status vital / */}
-          <Text style={styles.pickername}>Status Vital</Text>
-          <Picker
-            selectedValue={selectedValue}
-            style={{ height: 48, width: 288 }}
-            onValueChange={(itemValue, itemIndex) =>
-              setSelectedValue(itemValue)
-            }
-          >
-            <Picker.Item label='Vivo' value='vivo'></Picker.Item>
-            <Picker.Item label='Falecido' value='falecido'></Picker.Item>
-          </Picker>
-
-          {/* Picker Genero / */}
-          <Text style={[styles.pickername, { marginTop: 16 }]}>Genero</Text>
-          <Picker
-            selectedValue={selectedValue}
-            style={{
-              height: 48,
-              width: 288,
-              color: 'black',
-            }}
-            onValueChange={(itemValue, itemIndex) =>
-              setSelectedValue(itemValue)
-            }
-          >
-            <Picker.Item label='Homem' value='homem'></Picker.Item>
-            <Picker.Item label='Mulher' value='mulher'></Picker.Item>
-            <Picker.Item label='Outros' value='outros'></Picker.Item>
-          </Picker>
-
-          {/* Picker Fumante / */}
-          <Text style={[styles.pickername, { marginTop: 16 }]}>Fumante?</Text>
-          <Picker
-            selectedValue={selectedValue}
-            style={{ height: 48, width: 288 }}
-            onValueChange={(itemValue, itemIndex) =>
-              setSelectedValue(itemValue)
-            }
-          >
-            <Picker.Item label='Sim' value='sim'></Picker.Item>
-            <Picker.Item label='Não' value='não'></Picker.Item>
-          </Picker>
-        </View>
+        <View style={styles.pickerBody}>{/* Picker Status vital / */}</View>
+        <SwitchSelector
+          buttonColor='#EB3C3C'
+          style={styles.switch}
+          options={[
+            { label: 'Masculino', value: 0 },
+            { label: 'Feminino', value: 1 },
+            { label: 'Outros', value: 2 },
+          ]}
+          initial={0}
+          onPress={(value) => console.log(`Call onPress with value: ${value}`)}
+        />
+        <SwitchSelector
+          buttonColor='#EB3C3C'
+          style={styles.switch}
+          options={[
+            { label: 'Sim', value: 0 },
+            { label: 'Não', value: 1 },
+          ]}
+          initial={0}
+          onPress={(value) => set}
+        />
         <View style={styles.body}>
           <TextInput
             placeholder={'Descrição caso tenha doença infecciosa'}

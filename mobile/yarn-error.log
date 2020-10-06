@@ -1,0 +1,62 @@
+Arguments: 
+  C:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js add react-native-switch-selector
+
+PATH: 
+  C:\Users\Fabio\bin;D:\Program Files\Git\usr\local\bin;D:\Program Files\Git\usr\bin;D:\Program Files\Git\usr\bin;D:\Program Files\Git\opt\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0;C:\Windows\System32\OpenSSH;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Users\Fabio\AppData\Local\Android\Sdk\platform-tools;D:\Program Files\Git\cmd;C:\ProgramData\chocolatey\bin;C:\Program Files\nodejs;C:\Program Files (x86)\Yarn\bin;C:\Users\Fabio\AppData\Local\Microsoft\WindowsApps;D:\Microsoft VS Code\bin;C:\Users\Fabio\AppData\Roaming\npm;C:\Users\Fabio\AppData\Local\Yarn\bin;D:\Program Files\Git\usr\bin\vendor_perl;D:\Program Files\Git\usr\bin\core_perl
+
+Yarn version: 
+  1.22.4
+
+Node version: 
+  12.18.3
+
+Platform: 
+  win32 x64
+
+Trace: 
+  Error: EPERM: operation not permitted, unlink 'C:\Users\Fabio\Desktop\Projetos\LinkLives\mobile\node_modules\file-uri-to-path\test'
+
+npm manifest: 
+  {
+    "main": "node_modules/expo/AppEntry.js",
+    "scripts": {
+      "start": "expo start",
+      "android": "expo start --android",
+      "ios": "expo start --ios",
+      "web": "expo start --web",
+      "eject": "expo eject"
+    },
+    "dependencies": {
+      "expo": "~39.0.2",
+      "expo-status-bar": "~1.0.2",
+      "react": "16.13.1",
+      "react-dom": "16.13.1",
+      "react-native": "https://github.com/expo/react-native/archive/sdk-39.0.2.tar.gz",
+      "react-native-web": "~0.13.12",
+      "@react-native-community/masked-view": "0.1.10",
+      "@react-navigation/bottom-tabs": "^5.6.1",
+      "@react-navigation/native": "^5.6.1",
+      "@react-navigation/stack": "^5.6.2",
+      "expo-constants": "^9.1.1",
+      "expo-font": "^8.2.1",
+      "react-native-elements": "^2.0.4",
+      "react-native-gesture-handler": "~1.6.0",
+      "react-native-reanimated": "~1.9.0",
+      "react-native-safe-area-context": "3.0.2",
+      "react-native-screens": "~2.9.0"
+    },
+    "devDependencies": {
+      "react-native-web": "~0.13.7",
+      "@types/react": "~16.9.35",
+      "@types/react-dom": "~16.9.8",
+      "@types/react-native": "~0.63.2",
+      "typescript": "~3.9.5"
+    },
+    "private": true
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
