@@ -39,16 +39,6 @@ const styles = StyleSheet.create({
     width: '100%',
   },
 
-  switch: {
-    marginTop: 24,
-  },
-
-  switchText: {
-    fontSize: 18,
-    marginTop: 24,
-    color: 'black',
-  },
-
   input: {
     backgroundColor: '#FFF',
     height: 48,
@@ -56,6 +46,24 @@ const styles = StyleSheet.create({
     fontSize: 18,
     marginTop: 24,
     paddingLeft: 10,
+  },
+
+  checkBoxText: {
+    fontSize: 24,
+    color: '#EB3C3C',
+    fontWeight: 'bold',
+    marginTop: 24,
+    marginBottom: 24,
+  },
+
+  containerStyle: {
+    backgroundColor: '#F0F0F5',
+    width: 140,
+  },
+
+  checkBoxContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
   },
 
   button: {

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import SwitchSelector from 'react-native-switch-selector';
 import { View, Text, TextInput, Image } from 'react-native';
 import { RectButton, ScrollView } from 'react-native-gesture-handler';
+import { CheckBox } from 'react-native-elements';
 
 import { Feather } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
@@ -20,6 +20,12 @@ const Register = () => {
   const [smoker, setSmoker] = useState(false);
   const [disease, setDisease] = useState('');
   const [emailParente, setEmailParente] = useState('');
+  const [heart, setHeart] = React.useState(false);
+  const [lungs, setLungs] = React.useState(false);
+  const [kidney, setKidney] = React.useState(false);
+  const [liver, setLiver] = React.useState(false);
+  const [intestine, setIntestine] = React.useState(false);
+  const [pancreas, setPancreas] = React.useState(false);
 
   const { navigate, goBack } = useNavigation();
 
@@ -99,35 +105,71 @@ const Register = () => {
               onChangeText={setBirthday}
             />
 
-            <Text style={styles.switchText}>Gênero</Text>
+            <Text style={styles.checkBoxText}>Orgãos necessários:</Text>
+            <View style={styles.checkBoxContainer}>
+              <CheckBox
+                title='Coração'
+                checked={heart}
+                onPress={() => setHeart(!heart)}
+                containerStyle={styles.containerStyle}
+                checkedColor='black'
+                size={24}
+                textStyle={{ fontSize: 18 }}
+                uncheckedColor='#EB3C3C'
+              />
 
-            <SwitchSelector
-              height={48}
-              fontSize={18}
-              buttonColor='#EB3C3C'
-              style={styles.switch}
-              options={[
-                { label: 'Masculino', value: 0 },
-                { label: 'Feminino', value: 1 },
-                { label: 'Outros', value: 2 },
-              ]}
-              initial={0}
-              onPress={(value: number) => setGenre(value)}
-            />
+              <CheckBox
+                title='Pulmão'
+                checked={lungs}
+                onPress={() => setLungs(!lungs)}
+                containerStyle={styles.containerStyle}
+                checkedColor='black'
+                textStyle={{ fontSize: 18 }}
+                uncheckedColor='#EB3C3C'
+              />
+            </View>
+            <View style={styles.checkBoxContainer}>
+              <CheckBox
+                title='Fígado'
+                checked={liver}
+                onPress={() => setLiver(!liver)}
+                containerStyle={styles.containerStyle}
+                checkedColor='black'
+                textStyle={{ fontSize: 18 }}
+                uncheckedColor='#EB3C3C'
+              />
 
-            <Text style={styles.switchText}>Fumante?</Text>
+              <CheckBox
+                title='Rins'
+                checked={kidney}
+                onPress={() => setKidney(!kidney)}
+                containerStyle={styles.containerStyle}
+                checkedColor='black'
+                textStyle={{ fontSize: 18 }}
+                uncheckedColor='#EB3C3C'
+              />
+            </View>
+            <View style={styles.checkBoxContainer}>
+              <CheckBox
+                title='Pancreas'
+                checked={pancreas}
+                onPress={() => setPancreas(!pancreas)}
+                containerStyle={styles.containerStyle}
+                checkedColor='black'
+                textStyle={{ fontSize: 18 }}
+                uncheckedColor='#EB3C3C'
+              />
 
-            <SwitchSelector
-              fontSize={18}
-              buttonColor='#EB3C3C'
-              style={styles.switch}
-              options={[
-                { label: 'Sim', value: 1 },
-                { label: 'Não', value: 0 },
-              ]}
-              initial={0}
-              onPress={(value: number) => setSmoker(value === 1)}
-            />
+              <CheckBox
+                title='Intestino'
+                checked={intestine}
+                onPress={() => setIntestine(!intestine)}
+                containerStyle={styles.containerStyle}
+                checkedColor='black'
+                textStyle={{ fontSize: 18 }}
+                uncheckedColor='#EB3C3C'
+              />
+            </View>
 
             <TextInput
               placeholder={'Descrição caso tenha doença infecciosa'}
