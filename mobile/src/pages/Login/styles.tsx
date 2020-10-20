@@ -50,6 +50,7 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: '300',
   },
+  icon: {},
 
   texto: {},
 });
