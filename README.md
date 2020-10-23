@@ -1,4 +1,6 @@
-![alt text](https://github.com/Monteifa/Link_Lives/blob/master/logo.png?raw=true)
+<p align="center">
+  <img src="https://github.com/Monteifa/Link_Lives/blob/master/logo.png?raw=true"/>
+</p>
 
 # Link Lives
 
