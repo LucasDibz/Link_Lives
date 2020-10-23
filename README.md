@@ -9,11 +9,10 @@ Also notifying the donatours family and friends that their organs saved X lifes.
 
 ### Prerequisites
 
-```
-NodeJs - https://nodejs.org/
-Expo - https://expo.io/
+[NodeJs](https://nodejs.org/)\
+[Expo](https://expo.io/)\
 Android/iOS Emulator or Physical Device
-```
+
 
 ### Installing
 
