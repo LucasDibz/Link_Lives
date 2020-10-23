@@ -9,15 +9,25 @@ import logo from '../../assets/logo.png';
 
 import styles from './styles';
 import { useState } from 'react';
+import api from '../../services/api';
 
-const Login = () => { 
-  
+const Login = () => {
   const { navigate } = useNavigation();
 
-  function login() {
-    //Fazer validações para o login
-    //Se passar => navigate('Main')
-    navigate('Main');
+  const [cpf, setCpf] = useState('');
+  const [password, setPassword] = useState('');
+
+  async function login() {
+
+    try {
+      const { data: user } = await api.get(`/donators/${cpf}`);
+
+      user && user.password === password
+        ? navigate('Main')
+        : alert('Senha incorreta!');
+    } catch (error) {
+      alert('Usuário não encontrado!');
+    }
   }
 
   function cadastro() {
@@ -30,11 +40,19 @@ const Login = () => {
       <Text style={styles.title}>Faça seu Login</Text>
 
       <View style={styles.inputContainer}>
-        <TextInput placeholder={'Sua ID'} style={styles.input} />
+        <TextInput
+          placeholder={'Informe o seu CPF'}
+          style={styles.input}
+          onChangeText={value => setCpf(value)}
+          value={cpf}
+        />
 
         <TextInput
           placeholder={'Senha'}
           style={[styles.input, { marginTop: 16 }]}
+          onChangeText={value => setPassword(value)}
+          value={password}
+          secureTextEntry
         />
 
         <RectButton style={styles.button} onPress={login}>
@@ -46,7 +64,7 @@ const Login = () => {
             name={'angle-right'}
             size={24}
             color={'#EB3C3C'}
-            style={{}}
+            style={{ marginRight: 5 }}
           />
           Não tenho cadastro
         </Text>

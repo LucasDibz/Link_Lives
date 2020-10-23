@@ -23,17 +23,13 @@ export class createPatients1603284468934 implements MigrationInterface {
             type: "number",
           },
           {
-            name: "rg",
-            type: "number",
-          },
-          {
             name: "email",
             type: "varchar",
           },
 
           {
             name: "orgaoNecessitado",
-            type: "varchar",
+            type: "text",
           },
         ],
       })

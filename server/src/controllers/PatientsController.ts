@@ -18,14 +18,13 @@ export default {
   },
 
   async create(request: Request, response: Response) {
-    const { id, name, cpf, rg, email, orgaoNecessitado } = request.body;
+    const { name, cpf, email, orgaoNecessitado } = request.body;
 
     const data = {
-      id,
       name,
       cpf,
-      rg,
       email,
+      orgaoNecessitado : JSON.stringify(orgaoNecessitado) 
     };
     const patientRepository = getRepository(Patient);
 

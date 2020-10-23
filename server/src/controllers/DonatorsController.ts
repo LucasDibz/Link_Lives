@@ -28,6 +28,7 @@ export default {
   async create(request: Request, response: Response) {
     const {
       name,
+      password,
       cpf,
       rg,
       email,
@@ -39,6 +40,7 @@ export default {
 
     const data = {
       name,
+      password,
       cpf,
       rg,
       email,
@@ -62,6 +64,7 @@ export default {
 
     const {
       name,
+      password,
       cpf,
       rg,
       email,
@@ -76,6 +79,7 @@ export default {
     try {
       const updatedDonator = await donatorsRepository.update(id, {
         name,
+        password,
         cpf,
         rg,
         email,
@@ -89,6 +93,7 @@ export default {
         message: "Donator Updated",
         id : parseInt(id.id),
         name,
+        password,
         cpf,
         rg,
         email,

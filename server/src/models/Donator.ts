@@ -11,6 +11,9 @@ export default class Donator {
 
   @Column()
   name: string;
+  
+  @Column()
+  password: string;
 
   @Column()
   cpf: number;

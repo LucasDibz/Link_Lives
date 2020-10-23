@@ -2,24 +2,22 @@ import React, { useState } from 'react';
 import SwitchSelector from 'react-native-switch-selector';
 import { View, Text, TextInput, Image } from 'react-native';
 import { RectButton, ScrollView } from 'react-native-gesture-handler';
-
 import { Feather } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
-
 import logo from '../../assets/logo.png';
-
+import api from '../../services/api';
 import styles from './styles';
 
 const Register = () => {
   const [name, setName] = useState('');
+  const [password, setPassword] = useState('');
   const [cpf, setCpf] = useState('');
   const [rg, setRg] = useState('');
   const [email, setEmail] = useState('');
-  const [birthday, setBirthday] = useState('');
-  const [genre, setGenre] = useState(0);
   const [smoker, setSmoker] = useState(false);
+  const [genre, setGenre] = useState('Masculino');
+  const [emailRelative, setEmailRelative] = useState('');
   const [disease, setDisease] = useState('');
-  const [emailParente, setEmailParente] = useState('');
 
   const { navigate, goBack } = useNavigation();
 
@@ -27,18 +25,27 @@ const Register = () => {
     goBack();
   }
 
-  function handleCadastrar() {
-    console.log({
+  async function handleCadastrar() {
+    const data = {
       name,
-      cpf,
-      rg,
+      password,
+      cpf: parseInt(cpf),
+      rg: parseInt(rg),
       email,
-      birthday,
-      genre,
       smoker,
+      genre,
+      emailRelative,
       disease,
-      emailParente,
-    });
+    };
+
+    if (!name || !cpf || !rg || !email || !genre || !emailRelative) {
+      alert('Todos os campos devem ser preenchidos!');
+      return;
+    }
+
+    await api.post('/donators', data);
+    alert('Doador cadastrado.');
+    navigate('Login');
   }
 
   return (
@@ -52,7 +59,7 @@ const Register = () => {
       >
         <View style={styles.header}>
           <Feather
-            name='arrow-left'
+            name="arrow-left"
             size={24}
             onPress={handleNavigateBack}
             style={styles.icon}
@@ -79,6 +86,14 @@ const Register = () => {
             />
 
             <TextInput
+              placeholder={'Senha'}
+              style={styles.input}
+              value={password}
+              onChangeText={setPassword}
+              secureTextEntry
+            />
+
+            <TextInput
               placeholder={'RG'}
               style={styles.input}
               value={rg}
@@ -92,34 +107,27 @@ const Register = () => {
               onChangeText={setEmail}
             />
 
-            <TextInput
-              placeholder={'Data de Nascimento'}
-              style={styles.input}
-              value={birthday}
-              onChangeText={setBirthday}
-            />
-
             <Text style={styles.switchText}>Gênero</Text>
 
             <SwitchSelector
               height={48}
               fontSize={18}
-              buttonColor='#EB3C3C'
+              buttonColor="#EB3C3C"
               style={styles.switch}
               options={[
-                { label: 'Masculino', value: 0 },
-                { label: 'Feminino', value: 1 },
-                { label: 'Outros', value: 2 },
+                { label: 'Masculino', value: 'Masculino' },
+                { label: 'Feminino', value: 'Feminino' },
+                { label: 'Outros', value: 'Outros' },
               ]}
               initial={0}
-              onPress={(value: number) => setGenre(value)}
+              onPress={(value: string) => setGenre(value)}
             />
 
             <Text style={styles.switchText}>Fumante?</Text>
 
             <SwitchSelector
               fontSize={18}
-              buttonColor='#EB3C3C'
+              buttonColor="#EB3C3C"
               style={styles.switch}
               options={[
                 { label: 'Sim', value: 1 },
@@ -139,8 +147,8 @@ const Register = () => {
             <TextInput
               placeholder={'Email de um parente'}
               style={styles.input}
-              value={emailParente}
-              onChangeText={setEmailParente}
+              value={emailRelative}
+              onChangeText={setEmailRelative}
             />
           </View>
 

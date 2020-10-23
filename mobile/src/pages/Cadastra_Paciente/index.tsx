@@ -2,30 +2,19 @@ import React, { useState } from 'react';
 import { View, Text, TextInput, Image } from 'react-native';
 import { RectButton, ScrollView } from 'react-native-gesture-handler';
 import { CheckBox } from 'react-native-elements';
-
 import { Feather } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
-
 import logo from '../../assets/logo.png';
+import api from '../../services/api';
 
 import styles from './styles';
 
 const Register = () => {
   const [name, setName] = useState('');
   const [cpf, setCpf] = useState('');
-  const [rg, setRg] = useState('');
   const [email, setEmail] = useState('');
-  const [birthday, setBirthday] = useState('');
-  const [genre, setGenre] = useState(0);
-  const [smoker, setSmoker] = useState(false);
-  const [disease, setDisease] = useState('');
-  const [emailParente, setEmailParente] = useState('');
-  const [heart, setHeart] = React.useState(false);
-  const [lungs, setLungs] = React.useState(false);
-  const [kidney, setKidney] = React.useState(false);
-  const [liver, setLiver] = React.useState(false);
-  const [intestine, setIntestine] = React.useState(false);
-  const [pancreas, setPancreas] = React.useState(false);
+
+  const [organs, setOrgans] = useState<string[]>([]);
 
   const { navigate, goBack } = useNavigation();
 
@@ -33,18 +22,24 @@ const Register = () => {
     goBack();
   }
 
-  function handleCadastrar() {
-    console.log({
+  async function handleCadastrar() {
+    const data = {
       name,
-      cpf,
-      rg,
+      cpf: parseInt(cpf),
       email,
-      birthday,
-      genre,
-      smoker,
-      disease,
-      emailParente,
-    });
+      orgaoNecessitado: organs,
+    };
+
+    if (!name || !cpf || !email || !organs) {
+      alert('Por favor preencha todas as informações!');
+      return;
+    }
+
+    await api.post('/patients', data);
+
+    alert('Paciente Cadastrado!');
+
+    navigate('Admin');
   }
 
   return (
@@ -58,7 +53,7 @@ const Register = () => {
       >
         <View style={styles.header}>
           <Feather
-            name='arrow-left'
+            name="arrow-left"
             size={24}
             onPress={handleNavigateBack}
             style={styles.icon}
@@ -85,105 +80,83 @@ const Register = () => {
             />
 
             <TextInput
-              placeholder={'RG'}
-              style={styles.input}
-              value={rg}
-              onChangeText={setRg}
-            />
-
-            <TextInput
               placeholder={'Email'}
               style={styles.input}
               value={email}
               onChangeText={setEmail}
             />
 
-            <TextInput
-              placeholder={'Data de Nascimento'}
-              style={styles.input}
-              value={birthday}
-              onChangeText={setBirthday}
-            />
-
             <Text style={styles.checkBoxText}>Orgãos necessários:</Text>
+            <Text
+              onPress={() => setOrgans([])}
+              style={{ marginBottom: 15, color: 'grey' }}
+            >
+              Limpar orgãos
+            </Text>
             <View style={styles.checkBoxContainer}>
               <CheckBox
-                title='Coração'
-                checked={heart}
-                onPress={() => setHeart(!heart)}
+                title="Coração"
+                checked={organs.includes('heart')}
+                onPress={() => setOrgans([...organs, 'heart'])}
                 containerStyle={styles.containerStyle}
-                checkedColor='black'
+                checkedColor="black"
                 size={24}
                 textStyle={{ fontSize: 18 }}
-                uncheckedColor='#EB3C3C'
+                uncheckedColor="#EB3C3C"
               />
 
               <CheckBox
-                title='Pulmão'
-                checked={lungs}
-                onPress={() => setLungs(!lungs)}
+                title="Pulmão"
+                checked={organs.includes('lung')}
+                onPress={() => setOrgans([...organs, 'lung'])}
                 containerStyle={styles.containerStyle}
-                checkedColor='black'
+                checkedColor="black"
                 textStyle={{ fontSize: 18 }}
-                uncheckedColor='#EB3C3C'
+                uncheckedColor="#EB3C3C"
               />
             </View>
             <View style={styles.checkBoxContainer}>
               <CheckBox
-                title='Fígado'
-                checked={liver}
-                onPress={() => setLiver(!liver)}
+                title="Fígado"
+                checked={organs.includes('liver')}
+                onPress={() => setOrgans([...organs, 'liver'])}
                 containerStyle={styles.containerStyle}
-                checkedColor='black'
+                checkedColor="black"
                 textStyle={{ fontSize: 18 }}
-                uncheckedColor='#EB3C3C'
+                uncheckedColor="#EB3C3C"
               />
 
               <CheckBox
-                title='Rins'
-                checked={kidney}
-                onPress={() => setKidney(!kidney)}
+                title="Rins"
+                checked={organs.includes('kidney')}
+                onPress={() => setOrgans([...organs, 'kidney'])}
                 containerStyle={styles.containerStyle}
-                checkedColor='black'
+                checkedColor="black"
                 textStyle={{ fontSize: 18 }}
-                uncheckedColor='#EB3C3C'
+                uncheckedColor="#EB3C3C"
               />
             </View>
             <View style={styles.checkBoxContainer}>
               <CheckBox
-                title='Pancreas'
-                checked={pancreas}
-                onPress={() => setPancreas(!pancreas)}
+                title="Pancreas"
+                checked={organs.includes('pancreas')}
+                onPress={() => setOrgans([...organs, 'pancreas'])}
                 containerStyle={styles.containerStyle}
-                checkedColor='black'
+                checkedColor="black"
                 textStyle={{ fontSize: 18 }}
-                uncheckedColor='#EB3C3C'
+                uncheckedColor="#EB3C3C"
               />
 
               <CheckBox
-                title='Intestino'
-                checked={intestine}
-                onPress={() => setIntestine(!intestine)}
+                title="Intestino"
+                checked={organs.includes('intestine')}
+                onPress={() => setOrgans([...organs, 'intestine'])}
                 containerStyle={styles.containerStyle}
-                checkedColor='black'
+                checkedColor="black"
                 textStyle={{ fontSize: 18 }}
-                uncheckedColor='#EB3C3C'
+                uncheckedColor="#EB3C3C"
               />
             </View>
-
-            <TextInput
-              placeholder={'Descrição caso tenha doença infecciosa'}
-              style={styles.input}
-              value={disease}
-              onChangeText={setDisease}
-            />
-
-            <TextInput
-              placeholder={'Email de um parente'}
-              style={styles.input}
-              value={emailParente}
-              onChangeText={setEmailParente}
-            />
           </View>
 
           <RectButton onPress={handleCadastrar} style={styles.button}>

@@ -15,12 +15,12 @@ function Stack() {
   return (
     <NavigationContainer>
       <Navigator screenOptions={{ headerShown: false }}>
-        <Screen name='Admin' component={Admin} />
-        <Screen name='CadastraObito' component={CadastraObito} />
-        <Screen name='CadastraPaciente' component={CadastraPaciente} />
         <Screen name='Login' component={Login} />
         <Screen name='Cadastro' component={Cadastro} />
         <Screen name='Main' component={Tabs} />
+        <Screen name='Admin' component={Admin} />
+        <Screen name='CadastraObito' component={CadastraObito} />
+        <Screen name='CadastraPaciente' component={CadastraPaciente} />
       </Navigator>
     </NavigationContainer>
   );

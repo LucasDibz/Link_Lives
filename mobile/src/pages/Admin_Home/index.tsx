@@ -39,7 +39,7 @@ const AdminHome = () => {
           </RectButton>
         </View>
 
-        <Text style={styles.description}>dgknajgagdhagjdgsdgsd</Text>
+        <Text style={styles.description}>teste descrição</Text>
       </View>
     </View>
   );

@@ -19,6 +19,10 @@ export class createDonators1603213296417 implements MigrationInterface {
             type: "varchar",
           },
           {
+            name: "password",
+            type: "varchar", 
+          },
+          {
             name: "cpf",
             type: "number",
           },
@@ -36,7 +40,7 @@ export class createDonators1603213296417 implements MigrationInterface {
           },
           {
             name: "genre",
-            type: "varchar",
+            type: "varchar", 
           },
           {
             name: "emailRelative",

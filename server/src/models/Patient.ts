@@ -16,15 +16,10 @@ export default class Patient {
   cpf: number;
 
   @Column()
-  rg: number;
-
-  @Column()
   email: string;
 
   @Column()
   orgaoNecessitado: string;
 
-
-  
 }
   
