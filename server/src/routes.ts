@@ -14,5 +14,7 @@ routes.delete("/donators/:cpf", DonatorsController.remove);
 //Patients
 routes.get("/patients/:id", PatientsController.find);
 routes.post("/patients", PatientsController.create);
+routes.put("/patients/:id", PatientsController.update);
+routes.delete("/patients/:id", DonatorsController.remove);
 
 export default routes;
