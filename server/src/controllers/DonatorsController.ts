@@ -91,16 +91,8 @@ export default {
 
       return response.json({
         message: "Donator Updated",
-        id : parseInt(id.id),
-        name,
-        password,
-        cpf,
-        rg,
-        email,
-        smoker,
-        genre,
-        emailRelative,
-        disease,
+        id,
+        updatedDonator
       });
 
     } catch (error) {
