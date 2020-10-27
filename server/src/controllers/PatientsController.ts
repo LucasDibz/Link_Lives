@@ -51,13 +51,13 @@ export default {
       });
 
       return response.json({
-        message: 'Donator Updated',
+        message: 'Pacient Updated',
         id,
         updatedPatient,
       });
     } catch (error) {
       return response.status(404).json({
-        error: 'Doador não encontrado!',
+        error: 'Paciente não encontrado!',
       });
     }
   },
@@ -68,14 +68,14 @@ export default {
     const patientsRepository = getRepository(Patients);
 
     try {
-      const patient = await patientsRepository.findOneOrFail({ id });
+      const patient = await patientsRepository.findOneOrFail(id);
 
       await patientsRepository.remove(patient);
 
-      return response.json({ message: 'removed donator', donator: patient });
+      return response.json({ message: 'removed pacient', donator: patient });
     } catch (error) {
       return response.status(404).json({
-        error: 'Doador não encontrado!',
+        error: 'Paciente não encontrado!',
       });
     }
   },

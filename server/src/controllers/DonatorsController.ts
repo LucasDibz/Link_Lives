@@ -1,6 +1,6 @@
-import { Request, Response } from "express";
-import { getRepository } from "typeorm";
-import Donators from "../models/Donator";
+import { Request, Response } from 'express';
+import { getRepository } from 'typeorm';
+import Donators from '../models/Donator';
 
 export default {
   async index(request: Request, response: Response) {
@@ -20,7 +20,7 @@ export default {
       return response.json(donator);
     } catch (error) {
       return response.status(404).json({
-        error: "Doador não encontrado!",
+        error: 'Doador não encontrado!',
       });
     }
   },
@@ -90,14 +90,13 @@ export default {
       });
 
       return response.json({
-        message: "Donator Updated",
+        message: 'Donator Updated',
         id,
-        updatedDonator
+        updatedDonator,
       });
-
     } catch (error) {
       return response.status(404).json({
-        error: "Doador não encontrado!",
+        error: 'Doador não encontrado!',
       });
     }
   },
@@ -111,10 +110,10 @@ export default {
         cpf: parseInt(cpf),
       });
       await donatorsRepository.remove(donator);
-      return response.json({ message: "removed donator", donator });
+      return response.json({ message: 'removed donator', donator });
     } catch (error) {
       return response.status(404).json({
-        error: "Doador não encontrado!",
+        error: 'Doador não encontrado!',
       });
     }
   },
