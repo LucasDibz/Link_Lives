@@ -38,8 +38,6 @@ const AdminHome = () => {
             <Text style={styles.buttonText}>Cadastrar paciente</Text>
           </RectButton>
         </View>
-
-        <Text style={styles.description}>teste descrição</Text>
       </View>
     </View>
   );

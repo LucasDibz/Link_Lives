@@ -59,7 +59,7 @@ const Register = () => {
       >
         <View style={styles.header}>
           <Feather
-            name="arrow-left"
+            name='arrow-left'
             size={24}
             onPress={handleNavigateBack}
             style={styles.icon}
@@ -112,7 +112,7 @@ const Register = () => {
             <SwitchSelector
               height={48}
               fontSize={18}
-              buttonColor="#EB3C3C"
+              buttonColor='#EB3C3C'
               style={styles.switch}
               options={[
                 { label: 'Masculino', value: 'Masculino' },
@@ -127,7 +127,7 @@ const Register = () => {
 
             <SwitchSelector
               fontSize={18}
-              buttonColor="#EB3C3C"
+              buttonColor='#EB3C3C'
               style={styles.switch}
               options={[
                 { label: 'Sim', value: 1 },

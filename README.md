@@ -20,10 +20,18 @@ Android/iOS Emulator or Physical Device
 
 Install depencies on server / mobile repositories
 ```
+cd server/
 npm i server
-npm i mobile
+
+cd mobile/
+npm i
 ```
 
+If on Windows running Android Emulator, connect your localhost with emulator locahost
+```
+adb reverse tcp:3333 tcp:3333
+
+`` 
 Start the local server
 
 ```
