@@ -24,7 +24,7 @@ export default {
       name,
       cpf,
       email,
-      orgaoNecessitado: JSON.stringify(orgaoNecessitado),
+      orgaoNecessitado: JSON.stringify(orgaoNecessitado).replace('\\', ''),
     };
     const patientRepository = getRepository(Patients);
 
@@ -47,7 +47,7 @@ export default {
         name,
         cpf,
         email,
-        orgaoNecessitado: JSON.stringify(orgaoNecessitado),
+        orgaoNecessitado: JSON.stringify(orgaoNecessitado).replace('\\', ''),
       });
 
       return response.json({
@@ -64,16 +64,15 @@ export default {
 
   async remove(request: Request, response: Response) {
     const { id } = request.params;
-
     const patientsRepository = getRepository(Patients);
 
     try {
       const patient = await patientsRepository.findOneOrFail(id);
-
       await patientsRepository.remove(patient);
 
-      return response.json({ message: 'removed pacient', donator: patient });
+      return response.json({ message: 'removed patient', patient });
     } catch (error) {
+      console.log('erro nessa merda ', error);
       return response.status(404).json({
         error: 'Paciente não encontrado!',
       });

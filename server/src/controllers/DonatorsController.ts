@@ -110,6 +110,7 @@ export default {
         cpf: parseInt(cpf),
       });
       await donatorsRepository.remove(donator);
+
       return response.json({ message: 'removed donator', donator });
     } catch (error) {
       return response.status(404).json({

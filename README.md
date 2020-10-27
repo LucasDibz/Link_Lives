@@ -36,6 +36,12 @@ Run on Expo
 npm start --prefix mobile
 ```
 
+Tests for Server
+```
+cd server/
+npm test
+```
+
 
 ## Built With
 
