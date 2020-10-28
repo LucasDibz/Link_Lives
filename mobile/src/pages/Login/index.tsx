@@ -61,12 +61,7 @@ const Login = () => {
         </RectButton>
 
         <Text style={styles.link} onPress={cadastro}>
-          <FontAwesome
-            name={'angle-right'}
-            size={24}
-            color={'#EB3C3C'}
-            style={{ marginRight: 5 }}
-          />
+          <FontAwesome name={'angle-right'} size={24} color={'#EB3C3C'} />
           Não tenho cadastro
         </Text>
       </View>

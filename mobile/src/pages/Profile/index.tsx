@@ -1,6 +1,6 @@
-import React, { useContext } from 'react';
-import { Alert } from 'react-native';
-import { ScrollView, Text, TextInput, View } from 'react-native';
+import React, { useContext, useState } from 'react';
+import { ScrollView, Text, TextInput, View, Alert } from 'react-native';
+import { RectButton } from 'react-native-gesture-handler';
 import { useNavigation } from '@react-navigation/native';
 import { FontAwesome } from '@expo/vector-icons';
 import DonatorContext from '../../context/Donator';
@@ -9,10 +9,15 @@ import styles from './styles';
 
 const Profile = () => {
   const { navigate, goBack } = useNavigation();
-
   const donator = useContext(DonatorContext);
 
-  function NavigateBack() {
+  const [edit, setEdit] = useState(false);
+  const [password, setPassword] = useState(donator.password);
+  const [email, setEmail] = useState(donator.email);
+  const [emailRelative, setEmailRelative] = useState(donator.emailRelative);
+  const [disease, setDisease] = useState(donator.disease);
+
+  function navigateBack() {
     goBack();
   }
 
@@ -41,6 +46,16 @@ const Profile = () => {
     navigate('Login');
   }
 
+  async function updateInfo() {
+    await api.put(`/donators/${donator.id}`, {
+      ...donator,
+      password,
+      email,
+      emailRelative,
+      disease,
+    });
+  }
+
   return (
     <View style={styles.container}>
       <ScrollView
@@ -54,12 +69,20 @@ const Profile = () => {
             name='arrow-left'
             size={28}
             style={styles.icon}
-            onPress={NavigateBack}
+            onPress={navigateBack}
           />
         </View>
         <View style={styles.body}>
           <View style={styles.info}>
             <Text style={styles.name}>{donator?.name}</Text>
+            <FontAwesome
+              name='edit'
+              size={24}
+              onPress={() => {
+                setEdit(!edit);
+                edit && updateInfo();
+              }}
+            />
           </View>
 
           <Text style={styles.texto}>CPF</Text>
@@ -72,9 +95,10 @@ const Profile = () => {
           <View style={styles.inputContainer}>
             <Text style={styles.texto}>Senha</Text>
             <TextInput
-              editable={false}
+              editable={edit}
               style={styles.input}
-              value={donator?.password}
+              value={password}
+              onChangeText={(value) => setPassword(value)}
             />
 
             <Text style={styles.texto}>RG</Text>
@@ -86,16 +110,18 @@ const Profile = () => {
 
             <Text style={styles.texto}>Email</Text>
             <TextInput
-              editable={false}
+              editable={edit}
               style={styles.input}
-              value={donator?.email}
+              value={email}
+              onChangeText={(value) => setEmail(value)}
             />
 
             <Text style={styles.texto}>Email Parente</Text>
             <TextInput
-              editable={false}
+              editable={edit}
               style={styles.input}
-              value={donator?.emailRelative}
+              value={emailRelative}
+              onChangeText={(value) => setEmailRelative(value)}
             />
 
             <Text style={styles.texto}>Gênero</Text>
@@ -114,9 +140,10 @@ const Profile = () => {
 
             <Text style={styles.texto}>Doença</Text>
             <TextInput
-              editable={false}
+              editable={edit}
               style={styles.input}
-              value={donator?.disease}
+              value={disease}
+              onChangeText={(value) => setDisease(value)}
             />
           </View>
 

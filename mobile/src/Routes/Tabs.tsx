@@ -51,6 +51,7 @@ function Tabs() {
             fontSize: 13,
             marginLeft: 16,
           },
+          activeTintColor: '#EB3C3C',
         }}
       >
         <Screen

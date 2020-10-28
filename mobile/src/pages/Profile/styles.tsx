@@ -24,6 +24,9 @@ const styles = StyleSheet.create({
   info: {
     marginTop: 16,
     marginLeft: -16,
+    marginRight: 16,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
   },
 
   name: {
