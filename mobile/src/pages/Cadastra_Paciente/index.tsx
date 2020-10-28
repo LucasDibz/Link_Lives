@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { View, Text, TextInput, Image } from 'react-native';
 import { RectButton, ScrollView } from 'react-native-gesture-handler';
 import { CheckBox } from 'react-native-elements';
-import { Feather } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
+import { Feather } from '@expo/vector-icons';
 import logo from '../../assets/logo.png';
 import api from '../../services/api';
 
@@ -53,7 +53,7 @@ const Register = () => {
       >
         <View style={styles.header}>
           <Feather
-            name="arrow-left"
+            name='arrow-left'
             size={24}
             onPress={handleNavigateBack}
             style={styles.icon}
@@ -95,66 +95,66 @@ const Register = () => {
             </Text>
             <View style={styles.checkBoxContainer}>
               <CheckBox
-                title="Coração"
+                title='Coração'
                 checked={organs.includes('heart')}
                 onPress={() => setOrgans([...organs, 'heart'])}
                 containerStyle={styles.containerStyle}
-                checkedColor="black"
+                checkedColor='black'
                 size={24}
                 textStyle={{ fontSize: 18 }}
-                uncheckedColor="#EB3C3C"
+                uncheckedColor='#EB3C3C'
               />
 
               <CheckBox
-                title="Pulmão"
+                title='Pulmão'
                 checked={organs.includes('lung')}
                 onPress={() => setOrgans([...organs, 'lung'])}
                 containerStyle={styles.containerStyle}
-                checkedColor="black"
+                checkedColor='black'
                 textStyle={{ fontSize: 18 }}
-                uncheckedColor="#EB3C3C"
+                uncheckedColor='#EB3C3C'
               />
             </View>
             <View style={styles.checkBoxContainer}>
               <CheckBox
-                title="Fígado"
+                title='Fígado'
                 checked={organs.includes('liver')}
                 onPress={() => setOrgans([...organs, 'liver'])}
                 containerStyle={styles.containerStyle}
-                checkedColor="black"
+                checkedColor='black'
                 textStyle={{ fontSize: 18 }}
-                uncheckedColor="#EB3C3C"
+                uncheckedColor='#EB3C3C'
               />
 
               <CheckBox
-                title="Rins"
+                title='Rins'
                 checked={organs.includes('kidney')}
                 onPress={() => setOrgans([...organs, 'kidney'])}
                 containerStyle={styles.containerStyle}
-                checkedColor="black"
+                checkedColor='black'
                 textStyle={{ fontSize: 18 }}
-                uncheckedColor="#EB3C3C"
+                uncheckedColor='#EB3C3C'
               />
             </View>
             <View style={styles.checkBoxContainer}>
               <CheckBox
-                title="Pancreas"
+                title='Pancreas'
                 checked={organs.includes('pancreas')}
                 onPress={() => setOrgans([...organs, 'pancreas'])}
                 containerStyle={styles.containerStyle}
-                checkedColor="black"
+                checkedColor='black'
                 textStyle={{ fontSize: 18 }}
-                uncheckedColor="#EB3C3C"
+                uncheckedColor='#EB3C3C'
               />
 
               <CheckBox
-                title="Intestino"
+                title='Intestino'
                 checked={organs.includes('intestine')}
                 onPress={() => setOrgans([...organs, 'intestine'])}
                 containerStyle={styles.containerStyle}
-                checkedColor="black"
+                checkedColor='black'
                 textStyle={{ fontSize: 18 }}
-                uncheckedColor="#EB3C3C"
+                uncheckedColor='#EB3C3C'
               />
             </View>
           </View>

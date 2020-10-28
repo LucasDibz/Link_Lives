@@ -1,15 +1,12 @@
 import React from 'react';
-
-import { useNavigation, Link } from '@react-navigation/native';
-import { RectButton } from 'react-native-gesture-handler';
-import { View, Image, Text, TextInput } from 'react-native';
-import { FontAwesome } from '@expo/vector-icons';
-
-import logo from '../../assets/logo.png';
-
-import styles from './styles';
 import { useState } from 'react';
+import { View, Image, Text, TextInput } from 'react-native';
+import { RectButton } from 'react-native-gesture-handler';
+import { useNavigation } from '@react-navigation/native';
+import { FontAwesome } from '@expo/vector-icons';
+import logo from '../../assets/logo.png';
 import api from '../../services/api';
+import styles from './styles';
 
 const Login = () => {
   const { navigate } = useNavigation();
@@ -24,10 +21,10 @@ const Login = () => {
     }
 
     try {
-      const { data: user } = await api.get(`/donators/${cpf}`);
+      const { data: donator } = await api.get(`/donators/${cpf}`);
 
-      user && user.password === password
-        ? navigate('Main')
+      donator && donator.password === password
+        ? navigate('Main', { donator })
         : alert('Senha incorreta!');
     } catch (error) {
       alert('Usuário não encontrado!');

@@ -1,17 +1,44 @@
-import React from 'react';
-
-import { useNavigation, Link } from '@react-navigation/native';
-import { RectButton } from 'react-native-gesture-handler';
-import { ScrollView, Image, Text, TextInput, View } from 'react-native';
+import React, { useContext } from 'react';
+import { Alert } from 'react-native';
+import { ScrollView, Text, TextInput, View } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 import { FontAwesome } from '@expo/vector-icons';
-
+import DonatorContext from '../../context/Donator';
+import api from '../../services/api';
 import styles from './styles';
 
 const Profile = () => {
-  const { goBack } = useNavigation();
+  const { navigate, goBack } = useNavigation();
+
+  const donator = useContext(DonatorContext);
 
   function NavigateBack() {
     goBack();
+  }
+
+  function confirmDeleteAccount() {
+    Alert.alert(
+      'Deseja deletar a sua conta?',
+      'O mundo precisa de doadores!',
+      [
+        {
+          text: 'Não',
+          style: 'cancel',
+        },
+        {
+          text: 'Sim, deletar',
+          style: 'destructive',
+          onPress: deleteAccount,
+        },
+      ],
+      { cancelable: false }
+    );
+  }
+
+  async function deleteAccount() {
+    await api.delete(`/donators/${donator.cpf}`);
+    alert('Sua conta foi deletada.');
+    navigate('Login');
   }
 
   return (
@@ -19,7 +46,7 @@ const Profile = () => {
       <ScrollView
         showsVerticalScrollIndicator={false}
         contentContainerStyle={{
-          paddingBottom: 16,
+          paddingBottom: 100,
         }}
       >
         <View style={styles.header}>
@@ -32,34 +59,70 @@ const Profile = () => {
         </View>
         <View style={styles.body}>
           <View style={styles.info}>
-            <Image
-              style={styles.foto}
-              source={{
-                uri:
-                  'https://instagram.fcgh23-1.fna.fbcdn.net/v/t51.2885-19/10864726_897378970286008_749804459_a.jpg?_nc_ht=instagram.fcgh23-1.fna.fbcdn.net&_nc_ohc=xeRFT03JkQ0AX_BNPFh&oh=48f3506bc7d07bef58f33fc96820c6c6&oe=5F9DB58A',
-              }}
-            />
-            <Text style={styles.name}>Fabio Monteiro </Text>
+            <Text style={styles.name}>{donator?.name}</Text>
           </View>
+
+          <Text style={styles.texto}>CPF</Text>
+          <TextInput
+            editable={false}
+            style={styles.input}
+            value={donator?.cpf.toString()}
+          />
+
           <View style={styles.inputContainer}>
-            <Text style={styles.texto}>Nome</Text>
-            <TextInput editable={false} style={styles.input} />
+            <Text style={styles.texto}>Senha</Text>
+            <TextInput
+              editable={false}
+              style={styles.input}
+              value={donator?.password}
+            />
 
-            <Text style={styles.texto}>Nome</Text>
-            <TextInput editable={false} style={styles.input} />
+            <Text style={styles.texto}>RG</Text>
+            <TextInput
+              editable={false}
+              style={styles.input}
+              value={donator?.rg.toString()}
+            />
 
-            <Text style={styles.texto}>Nome</Text>
-            <TextInput editable={false} style={styles.input} />
+            <Text style={styles.texto}>Email</Text>
+            <TextInput
+              editable={false}
+              style={styles.input}
+              value={donator?.email}
+            />
 
-            <Text style={styles.texto}>Nome</Text>
-            <TextInput editable={false} style={styles.input} />
+            <Text style={styles.texto}>Email Parente</Text>
+            <TextInput
+              editable={false}
+              style={styles.input}
+              value={donator?.emailRelative}
+            />
 
-            <Text style={styles.texto}>Nome</Text>
-            <TextInput editable={false} style={styles.input} />
+            <Text style={styles.texto}>Gênero</Text>
+            <TextInput
+              editable={false}
+              style={styles.input}
+              value={donator?.genre}
+            />
 
-            <Text style={styles.texto}>Nome</Text>
-            <TextInput editable={false} style={styles.input} />
+            <Text style={styles.texto}>Fumante</Text>
+            <TextInput
+              editable={false}
+              style={styles.input}
+              value={donator?.smoker ? 'Sim' : 'Não'}
+            />
+
+            <Text style={styles.texto}>Doença</Text>
+            <TextInput
+              editable={false}
+              style={styles.input}
+              value={donator?.disease}
+            />
           </View>
+
+          <Text style={styles.deleteAccount} onPress={confirmDeleteAccount}>
+            Deletar Conta
+          </Text>
         </View>
       </ScrollView>
     </View>

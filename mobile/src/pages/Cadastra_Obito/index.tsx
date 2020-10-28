@@ -1,11 +1,9 @@
-import React, { useState } from 'react';
-import { View, Text, TextInput, Image } from 'react-native';
-import { RectButton, ScrollView } from 'react-native-gesture-handler';
+import React from 'react';
+import { View, Text, TextInput } from 'react-native';
+import { RectButton } from 'react-native-gesture-handler';
 import { CheckBox } from 'react-native-elements';
-
-import { Feather } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
-
+import { Feather } from '@expo/vector-icons';
 import styles from './styles';
 
 const CadastrarObito = () => {

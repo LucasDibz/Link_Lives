@@ -1,10 +1,8 @@
 import React from 'react';
-
 import { View, Text, Image } from 'react-native';
 import { RectButton } from 'react-native-gesture-handler';
 import { useNavigation } from '@react-navigation/native';
 import { MaterialIcons, FontAwesome } from '@expo/vector-icons';
-
 import logo from '../../assets/logo.png';
 import styles from './styles';
 
