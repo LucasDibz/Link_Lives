@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import SwitchSelector from 'react-native-switch-selector';
 import { View, Text, TextInput, Image } from 'react-native';
 import { RectButton, ScrollView } from 'react-native-gesture-handler';
-import { Feather } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
+import { Feather } from '@expo/vector-icons';
 import logo from '../../assets/logo.png';
 import api from '../../services/api';
 import styles from './styles';
@@ -133,7 +133,7 @@ const Register = () => {
                 { label: 'Sim', value: 1 },
                 { label: 'Não', value: 0 },
               ]}
-              initial={0}
+              initial={1}
               onPress={(value: number) => setSmoker(value === 1)}
             />
 

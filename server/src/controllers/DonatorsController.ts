@@ -72,8 +72,8 @@ export default {
       genre,
       emailRelative,
       disease,
-    } = request.body;
-
+    } = request.body; 
+    
     const donatorsRepository = getRepository(Donators);
 
     try {
