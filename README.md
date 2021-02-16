@@ -31,7 +31,7 @@ If on Windows running Android Emulator, connect your localhost with emulator loc
 ```
 adb reverse tcp:3333 tcp:3333
 
-`` 
+```
 Start the local server
 
 ```
